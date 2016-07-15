@@ -28,11 +28,19 @@ function convertHTML(str) {
 }
 
 function filterHtml(str){
-    var regex = new RegExp("/(<|>|'|&|"+'");/g');
-    return str.replace(regex, '');
+    //var regex = new RegExp("/&/",'g');
+    //var regex = /\s/g;
+    //var regex = /([^\W_]+[^\s-]*)*/g;
+    /*return str.replace(regex, function (s) {
+        return s.toLowerCase()+'-';
+    });*/
+
+    var regex = /\s+|_+/g;
+    str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+    return str.replace(regex, '-').toLowerCase();
 }
 
-console.log(filterHtml("Dolce & Gabbana"));
+console.log(filterHtml("AllThe-small Things"));
 
 
 //console.log(convertHTML("Dolce & Gabbana"));
