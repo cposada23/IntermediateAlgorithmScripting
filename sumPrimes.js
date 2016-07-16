@@ -14,7 +14,6 @@ function sumPrimes(num) {
             console.log("si");
             sum +=i;
         }
-
     }
     return sum;
 }
